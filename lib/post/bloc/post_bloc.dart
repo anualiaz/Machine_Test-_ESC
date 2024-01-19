@@ -29,7 +29,7 @@ class PostBloc extends Bloc<PostEvent, PostState> {
 
     try {
       if (state is PostInitial) {
-        posts = await PostApi.fetchPost(0, 10);
+        posts = await PostApi.fetchPost(1, 10);
         return PostLoaded(posts: posts);
       }
       PostLoaded postLoaded = state as PostLoaded;

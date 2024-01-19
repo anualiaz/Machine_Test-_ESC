@@ -10,12 +10,30 @@ class PostPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("List Posts"),
-      ),
+      // backgroundColor: Color(0xdffCBC3E3),
       body: BlocProvider(
         create: (context) => PostBloc()..add(PostFetched()),
-        child: PostBody(),
+        child:  SafeArea(
+          child: Column(
+            children: [
+              const SizedBox(height: 30,),
+              const Center(
+                child:  Text("Data Lists",
+                  style: TextStyle(
+                    fontSize: 26,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10,),
+              SizedBox(
+                height: MediaQuery.of(context).size.height/1.1615,
+                child: const PostBody()
+              ),
+              // const PostBody(),
+            ],
+          ),
+        ),
       ),
     );
   }
